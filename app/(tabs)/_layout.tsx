@@ -26,7 +26,12 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color, focused }) => { 
+            // When chaning the tab once this is executed twice
+            // One time with focused true and the second time focused is false
+            console.log(focused) 
+            return <TabBarIcon name="code" color={color} />
+          },
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
